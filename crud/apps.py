@@ -1,0 +1,8 @@
+from django.apps import AppConfig
+
+
+class CrudConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'crud'
+    verbose_name = 'Cadastro de Funcionários'
+    verbose_name_plural = 'Cadastro de Funcionários'

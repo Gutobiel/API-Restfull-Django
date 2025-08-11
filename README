@@ -1,0 +1,13 @@
+# API-Restfull-Django
+
+### 1. Ativar o ambiente virtual
+.\env\Scripts\activate
+
+### 2. Iniciar o servidor
+python manage.py runserver
+
+### 3. Testar a API RESTful
+Client ADMIN http://127.0.0.1:8000/admin
+
+Utilize o Postman para enviar requisições
+Ou acesse no navegador: http://127.0.0.1:8000/api/v1/ para visualizar as APIs disponíveis
