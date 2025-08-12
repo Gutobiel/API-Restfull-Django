@@ -19,6 +19,7 @@ from django.urls import path, include
 from crud import views
 
 urlpatterns = [
+    path('api/v1/', include('authentication.urls')),
     path('api/v1/', include('crud.urls')),
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),

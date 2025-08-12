@@ -11,3 +11,22 @@ Client ADMIN http://127.0.0.1:8000/admin
 
 Utilize o Postman para enviar requisições
 Ou acesse no navegador: http://127.0.0.1:8000/api/v1/ para visualizar as APIs disponíveis
+
+| Método | Rota                              | Descrição                          |
+|--------|-----------------------------------|-----------------------------------------|
+| GET    | /api/v1/crud/                     | Lista todos os funcionarios             |
+| GET    | /api/v1/crud/{id}/                | Obtém os detalhes de um funcionarios    |
+| POST   | /api/v1/crud/                     | Cria um novo funcionario                |
+| PUT    | /api/v1/crud/{id}/                | Atualiza um funcionario existente       |
+| DELETE | /api/v1/crud/{id}/                | Remove um funcionario                   |
+| POST   | /api/v1/auauthentication/token/   | Recebe um token                         |
+
+
+Body - Receber Token
+{
+    "username": "balafini",
+    "password": "@#teste@#"
+}
+
+Copie o token do campo "Access" da resposta em json 
+
