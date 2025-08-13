@@ -28,5 +28,21 @@ Body - Receber Token
     "password": "@#teste@#"
 }
 
-Copie o token do campo "Access" da resposta em json 
+Copie o token do campo "Access" da resposta em json
+
+Cria Funcionário
+Body json example: 
+{
+	"name": "Fulano",
+    "position": "Desenvolvedor",
+    "wage": "9999"
+}
+
+Alterar dados do funcionário
+{
+	"name": "Lucas Rafael Rodrigues",
+    "cpf": "99999999999",
+    "position": "Scrum Master",
+    "wage": "10000"
+}
 
