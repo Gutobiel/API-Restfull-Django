@@ -19,7 +19,7 @@ Ou acesse no navegador: http://127.0.0.1:8000/api/v1/ para visualizar as APIs di
 | POST   | /api/v1/crud/                     | Cria um novo funcionario                |
 | PUT    | /api/v1/crud/{id}/                | Atualiza um funcionario existente       |
 | DELETE | /api/v1/crud/{id}/                | Remove um funcionario                   |
-| POST   | /api/v1/auauthentication/token/   | Recebe um token                         |
+| POST   | /api/v1/authentication/token/     | Recebe um token                         |
 
 
 Body - Receber Token
