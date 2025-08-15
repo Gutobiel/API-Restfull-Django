@@ -5,11 +5,14 @@
       <label>Nome:</label>
       <input v-model="employee.name" required />
 
+      <label>CPF:</label>
+      <input v-model="employee.cpf"  />
+
       <label>Cargo:</label>
-      <input v-model="employee.role" required />
+      <input v-model="employee.position" required />
 
       <label>Salário:</label>
-      <input type="number" v-model="employee.salary" required />
+      <input type="number" v-model="employee.wage" required />
 
       <button type="submit">Salvar</button>
     </form>
@@ -20,23 +23,29 @@
 import api from '../axios';
 
 export default {
-  name: 'EmployeeForm',
+  name: 'EmployeeNew',
   data() {
     return {
       employee: {
         name: '',
-        role: '',
-        salary: ''
+        cpf: '',
+        position: '',
+        wage: '',
+        exit_time: null,
+        created_at: null,
+        updated_at: null
+        
       }
     };
   },
   methods: {
     async createEmployee() {
       try {
-        await api.post('/employees/', this.employee);
+        await api.post('/api/v1/crud/', this.employee);
         alert('Funcionário criado com sucesso!');
-        this.$router.push('/employees');
+        this.$router.push('/employee');
       } catch (error) {
+        alert('Erro ao criar funcionário');
         console.error('Erro ao criar funcionário', error);
       }
     }

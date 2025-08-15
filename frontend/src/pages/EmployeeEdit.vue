@@ -5,11 +5,17 @@
       <label>Nome:</label>
       <input v-model="employee.name" required />
 
+      <label>CPF:</label>
+      <input v-model="employee.cpf" required />
+
       <label>Cargo:</label>
-      <input v-model="employee.role" required />
+      <input v-model="employee.position" required />
 
       <label>Salário:</label>
-      <input type="number" v-model="employee.salary" required />
+      <input type="number" v-model="employee.wage" required />
+      
+      <label>Demitir</label>
+      <input type="checkbox" v-model="demitir" />
 
       <button type="submit">Salvar</button>
     </form>
@@ -25,16 +31,21 @@ export default {
     return {
       employee: {
         name: '',
-        role: '',
-        salary: ''
-      }
+        cpf: '',
+        position: '',
+        wage: '',
+        exit_time: null
+      },
+      demitir: false
     };
   },
   async mounted() {
     const id = this.$route.params.id;
     try {
-      const res = await api.get(`/employees/${id}/`);
+      const res = await api.get(`/api/v1/crud/${id}/`);
       this.employee = res.data;
+      // Se já tem exit_time, marca a checkbox
+      this.demitir = !!this.employee.exit_time;
     } catch (error) {
       console.error('Erro ao carregar funcionário', error);
     }
@@ -42,10 +53,21 @@ export default {
   methods: {
     async updateEmployee() {
       const id = this.$route.params.id;
+      // Se demitir está marcado, registra a data de saída
+      if (this.demitir) {
+        this.employee.exit_time = new Date().toISOString().substring(0, 10);
+      } else {
+        this.employee.exit_time = null;
+      }
+      
+      const updatedEmployee = {
+        ...this.employee,
+        updated_at: new Date().toISOString()
+      }
       try {
-        await api.put(`/employees/${id}/`, this.employee);
+        await api.put(`/api/v1/crud/${id}/`, updatedEmployee);
         alert('Funcionário atualizado com sucesso!');
-        this.$router.push('/employees');
+        this.$router.push('/employee');
       } catch (error) {
         console.error('Erro ao atualizar funcionário', error);
       }

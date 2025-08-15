@@ -1,13 +1,14 @@
 <template>
   <div id="app">
+    <Header />
     <router-view />
   </div>
 </template>
 
 <script setup>
-// Nenhum código de lógica de API aqui
+import Header from './components/Header.vue'
 </script>
 
 <style>
-/* estilos globais, se necessário */
+@import './style.css';
 </style>

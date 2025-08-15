@@ -1,16 +1,16 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000',  // backend Django
-});
+  baseURL: 'http://localhost:8000',
+})
 
-// Intercepta todas as requisições e adiciona o token
+// Adiciona o token JWT em todas as requisições
 api.interceptors.request.use(config => {
-  const token = localStorage.getItem('access');
+  const token = localStorage.getItem('token')
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `Bearer ${token}`
   }
-  return config;
-});
+  return config
+})
 
-export default api;
+export default api
