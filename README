@@ -3,10 +3,15 @@
 ### 1. Ativar o ambiente virtual
 .\env\Scripts\activate
 
-### 2. Iniciar o servidor
+### 2. Iniciar o servidor backend
+cd .\backend\
 python manage.py runserver
 
-### 3. Testar a API RESTful
+### 3. Iniciar o servidor frontend
+cd .\frontend\
+npm run dev
+
+### 4. Testar a API RESTful
 Client ADMIN http://127.0.0.1:8000/admin
 
 Utilize o Postman para enviar requisições
@@ -46,3 +51,6 @@ Alterar dados do funcionário
     "wage": "10000"
 }
 
+### 5. Página no navegador disponivel em:
+
+Navegador: http://localhost:5174/
