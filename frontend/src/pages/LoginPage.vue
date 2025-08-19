@@ -1,20 +1,33 @@
 <template>
-  <div class="login-page">
-    <h2>Login</h2>
+  <div class="login-page" >
+    <img src="../assets/logoFab.png" alt="logoFabDnit" class="navbar-logo"><h4>Bem-vindo ao FabDnit</h4><img/>
     <form @submit.prevent="loginUser">
-      <label></label>
-      <input type="text" name="username" placeholder="Usuário" v-model="username" required />
-      <br>
-      <label></label>
-      <input type="password" name="password" placeholder="Senha" v-model="password" required />
-      <br />
-      <button class="btn btn-primary" type="submit">
+      <div class="mb-3">
+        <input type="text" name="username" placeholder="Usuário" v-model="username" required />
+        <label><i class="bi bi-person-fill"></i></label>
+      </div>
+      <div>
+        <input type="password" name="password" placeholder="Senha" v-model="password" required />
+        <label><i class="bi bi-lock-fill"></i></label>
+      </div>
+      <button class="btn btn-primary" style="margin: 10px;" type="submit">
         <i class="bi bi-door-open-fill"></i>
-        Entrar
+        Acessar
       </button>
     </form>
   </div>
 </template>
+
+<style>
+  .navbar-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    background: #fff;
+  }
+  </style>
 
 <script setup>
 import { ref } from 'vue'
