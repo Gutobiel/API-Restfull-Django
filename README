@@ -54,3 +54,8 @@ Alterar dados do funcionário
 ### 5. Página no navegador disponivel em:
 
 Navegador: http://localhost:5174/
+
+
+### Obeservação
+
+O Token JWT dura 60 minutos após o logi

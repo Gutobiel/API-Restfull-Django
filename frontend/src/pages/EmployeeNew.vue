@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-group">
     <h2>Novo Funcionário</h2>
     <form @submit.prevent="createEmployee">
       <label>Nome:</label>

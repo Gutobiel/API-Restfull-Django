@@ -1,14 +1,16 @@
 <template>
-  <div>
-    <h2>Authentication</h2>
+  <div class="login-page">
+    <h2>Login</h2>
     <form @submit.prevent="loginUser">
-      <label>Usuário:</label>
-      <input type="text" name="username" placeholder="Nome de usuário" v-model="username" required />
+      <label></label>
+      <input type="text" name="username" placeholder="Usuário" v-model="username" required />
       <br>
-      <label>Senha:</label>
+      <label></label>
       <input type="password" name="password" placeholder="Senha" v-model="password" required />
       <br />
-      <button type="submit">Entrar
+      <button class="btn btn-primary" type="submit">
+        <i class="bi bi-door-open-fill"></i>
+        Entrar
       </button>
     </form>
   </div>
@@ -29,13 +31,14 @@ const loginUser = async () => {
       username: username.value,
       password: password.value
     })
+
     if (response.status !== 200) {
       throw new Error('Login failed')
     }
 
     const token = response.data.access
     localStorage.setItem('token', response.data.access)
-    router.push('/employee')          
+    router.push('/home')          
 
   } catch (error) {
     alert('Erro no login: usuário ou senha inválidos')

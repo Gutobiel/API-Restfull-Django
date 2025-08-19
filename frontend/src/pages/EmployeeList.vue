@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="table-responsive">
     <h2>Funcionários</h2>
-    <button @click="$router.push('/employee/new')">Novo Funcionário</button>
+    <button class="btn btn-primary btn-sm" style="margin-bottom: 10px;" @click="$router.push('/employee/new')" >Novo Funcionário
+      <i class="bi bi-person-add"></i>
+    </button>
 
-    <table border="1" cellpadding="5">
+    <table class="table table-striped table-dark">
       <thead>
         <tr>
           <th>ID</th>
@@ -14,7 +16,7 @@
           <th>Data de Contratação</th>
           <th>Ultima Alteração</th>
           <th>Data de Saída</th>
-          <th>Ações</th>
+          <th width="180">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -27,12 +29,18 @@
           <td>{{ employee.created_at ? employee.created_at.substring(0, 10) : '' }}</td>
           <td>{{ employee.updated_at ? employee.updated_at.substring(0, 10) : '' }}</td>
           <td>{{ employee.exit_time ? employee.exit_time.substring(0, 10) : '' }}</td>
-
-          <td>
-            <router-link :to="`/employee/edit/${employee.id}`">
-              <button @click="$router.push(`/employee/edit/${employee.id}`)">Editar</button>
-            </router-link>
-            <button @click="deleteEmployee(employee.id)">Excluir</button>
+          <td class="text-nowrap">
+            <div class="btn-group" role="group">
+              <a href="#" class="btn btn-primary btn-sm" title="Consultar" @click="$router.push(`/employee/${employee.id}`)">
+                <i class="bi bi-eye"></i>
+              </a>
+              <a @click="$router.push(`/employee/edit/${employee.id}`)" class="btn btn-warning btn-sm" title="Editar">
+                <i class="bi bi-pencil-square"></i>
+              </a>
+              <a @click="deleteEmployee(employee.id)" class="btn btn-danger btn-sm" title="Excluir">
+                <i class="bi bi-trash"></i>
+              </a>
+            </div>
           </td>
         </tr>
       </tbody>

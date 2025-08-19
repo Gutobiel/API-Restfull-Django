@@ -5,20 +5,30 @@
       <span class="navbar-title">FabDnit</span>
     </div>
     <ul>
-      <li><router-link to="/home">Home</router-link></li>
-      <li><router-link to="/login">Login</router-link></li>
+      <li><router-link to="/home">
+        <i class="bi bi-house-fill"></i> Home</router-link></li>
+      <li><router-link to="/employee">
+        <i class="bi bi-person-lines-fill"></i> Funcionários</router-link>
+      </li>
+      <button class="btn btn-sm" title="Sair" style="color: aliceblue;"  @click="logoutUser">
+      <i class="bi bi-box-arrow-right"></i>
+    </button>
     </ul>
   </header>
 </template>
 
 <style scoped>
+
+  
+
+
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 50px;
-    background: #2c3e50;
+    background: #1a242d;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,12 +82,23 @@
 
   a.router-link-active,
   a:hover {
-    background: #34495e;
+    background: #424242;
   }
 </style>
 
 <script>
 export default {
   name: 'Header'
+}
+</script>
+
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const logoutUser = () => {
+  localStorage.removeItem('token')
+  router.push('/login')
 }
 </script>
