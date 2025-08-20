@@ -58,4 +58,6 @@ Navegador: http://localhost:5174/
 
 ### Obeservação
 
-O Token JWT dura 60 minutos após o logi
+O Token JWT dura 60 minutos após o login
+
+## 

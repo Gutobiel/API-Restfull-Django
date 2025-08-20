@@ -1,24 +1,33 @@
 <template>
-  <div>
-    <h2>Editar Funcionário</h2>
-    <form @submit.prevent="updateEmployee">
-      <label>Nome:</label>
-      <input v-model="employee.name" required />
-
-      <label>CPF:</label>
-      <input v-model="employee.cpf" required />
-
-      <label>Cargo:</label>
-      <input v-model="employee.position" required />
-
-      <label>Salário:</label>
-      <input type="number" v-model="employee.wage" required />
-      
-      <label>Demitir</label>
-      <input type="checkbox" v-model="demitir" />
-
-      <button type="submit">Salvar</button>
-    </form>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Atualizar Funcionário</h2>
+      <p class="card-text">Preencha os dados do funcionário:</p>
+      <form @submit.prevent="updateEmployee">
+        <div class="d-flex mb-3">
+          <label class="col-sm-2 text-left">Nome:</label>
+          <input v-model="employee.name" required style="width: 100%;"/>
+        </div>
+        <div class="d-flex mb-3">
+          <label class="col-sm-2 text-left">CPF:</label>
+          <input v-model="employee.cpf" required style="width: 100%;"/>
+        </div>
+        <div class="d-flex mb-3">
+          <label class="col-sm-2 text-left">Cargo:</label>
+          <input v-model="employee.position" required style="width: 100%;"/>
+        </div>
+        <div class="d-flex mb-3">
+          <label class="col-sm-2 text-left">Salário:</label>
+          <input type="number" v-model="employee.wage" required style="width: 100%;"/>
+        </div>
+        <div class="d-flex mb-3">
+          <label class="col-sm-5 text-left">Registrar Saída</label>
+          <input type="checkbox" v-model="demitir" />
+          
+        </div>
+        <input class="btn btn-success form-control" type="submit" value="Salvar">
+      </form>
+    </div>
   </div>
 </template>
 
@@ -69,6 +78,12 @@ export default {
         alert('Funcionário atualizado com sucesso!');
         this.$router.push('/employee');
       } catch (error) {
+        if (error.response && error.response.status === 401) {
+          alert('Erro de autenticação. Por favor, faça login novamente.');
+          this.$router.push('/login');
+        } else {
+          alert('Erro ao atualizar funcionário.');
+        }
         console.error('Erro ao atualizar funcionário', error);
       }
     }

@@ -1,21 +1,33 @@
 <template>
   <div class="login-page" >
-    <img src="../assets/logoFab.png" alt="logoFabDnit" class="navbar-logo"><h4>Bem-vindo ao FabDnit</h4><img/>
-    <form @submit.prevent="loginUser">
-      <div class="mb-3">
-        <input type="text" name="username" placeholder="Usuário" v-model="username" required />
-        <label><i class="bi bi-person-fill"></i></label>
+    <h1>
+      <img src="../assets/logoFab.png" alt="logoFabDnit" class="navbar-logo"><img/>
+    </h1>
+    <div class="login-logo">
+
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <p class="login-box-msg">Bem-vindo ao FabDnit</p>
+        <form @submit.prevent="loginUser">
+          <div class="mb-3">
+            <input type="text" name="username" placeholder="Usuário" v-model="username" required />
+            <label><i class="bi bi-person-fill"></i></label>
+          </div>
+          <div>
+            <input type="password" name="password" placeholder="Senha" v-model="password" required />
+            <label><i class="bi bi-lock-fill"></i></label>
+          </div>
+          <button class="btn btn-primary" style="margin: 10px;" type="submit">
+            <i class="bi bi-door-open-fill"></i>
+            Acessar
+          </button>
+        </form>
       </div>
-      <div>
-        <input type="password" name="password" placeholder="Senha" v-model="password" required />
-        <label><i class="bi bi-lock-fill"></i></label>
-      </div>
-      <button class="btn btn-primary" style="margin: 10px;" type="submit">
-        <i class="bi bi-door-open-fill"></i>
-        Acessar
-      </button>
-    </form>
+    </div>
   </div>
+
+
 </template>
 
 <style>
