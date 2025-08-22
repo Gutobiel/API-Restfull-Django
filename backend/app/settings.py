@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'corsheaders',
+
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_spectacular',
+
     'crud',
     'authentication',
 
@@ -300,6 +303,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
 		 'dj_rql.drf.RQLFilterBackend'
 	 ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
@@ -307,4 +311,10 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'FabDnit API',
+    'DESCRIPTION': 'Desafio CRUD - Fábrica de Software - DNIT',
+    'VERSION': '1.0.0',
 }
