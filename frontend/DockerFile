@@ -1,0 +1,22 @@
+
+FROM node:22.2.0-alpine
+
+WORKDIR /frontend
+
+
+COPY package*.json ./
+
+
+RUN npm install
+RUN npm install bootstrap
+RUN npm i bootstrap@5.3.7
+RUN npm i bootstrap-icons
+
+
+COPY . .
+
+EXPOSE 5173
+
+RUN npm run build
+
+
